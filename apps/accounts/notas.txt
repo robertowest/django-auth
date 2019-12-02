@@ -1,0 +1,26 @@
+Para que funcione esta aplicación, debemos agregar las siguientes líneas al settings.py
+
+TEMPLATES = [
+    {
+        ...
+        'OPTIONS': {
+            'context_processors': [
+                ...
+                # procesadores de contexto
+                'apps.accounts.context_processors.social_login_url',
+            ],
+        },
+    },
+]
+
+
+INSTALLED_APPS += [
+    'apps.accounts',
+]
+
+SOCIAL_AUTH_GITHUB_KEY = os.getenv("SOCIAL_AUTH_GITHUB_KEY", "4559b40eb14a6ad70804")
+SOCIAL_AUTH_GITHUB_SECRET = os.getenv("SOCIAL_AUTH_GITHUB_SECRET", "04a778c5083535a07ba591cc8132612bd8c17a06")
+
+
+
+http://localhost:8000/?code=55b96521ea319b5a7cc3
